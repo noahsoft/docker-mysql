@@ -13,9 +13,11 @@ Usage
 -----
 
 The first time that you run the container, the server will generate a random password for the user `admin`. You can see the password in the docker logs:
+
     docker logs <CONTAINER_ID>
 
 You can set MYSQL_USER and MYSQL_PASS env variables to set user and/or password :
+
     docker run -d -e MYSQL_USER="myuser" -e MYSQL_PASS="mypass" sabbasth/mysql:<tag>
 
 Remember that root user is only accessible from localhost.
@@ -26,17 +28,22 @@ Mounting with the data container
 Start a data container (See sabbasth/mysql:data-container)/
 
 Run the server:
+
     docker create --volumes-from <data container name> sabbasth/mysql:<tag>
 
 Export/Import database data
 ---------------------------
 
 Dump your database structure:
+
     mysqldump -u<user> -p --opt -d -B <database(s) name> > /tmp/db_schema.sql
+
 Dump your datas:
+
     mysqldump -u<user> -p --quick --single-transaction -t -n -B <database(s) name> > /tmp/db_data.sql
 
 Start a new database and init with the SQL file:
+
     docker run -d -v /path/in/host:/var/lib/mysql -e STARTUP_SQL="/tmp/<dump.sql>" sabbasth/mysql:<tag>
 
 Replication - Master/Slave
