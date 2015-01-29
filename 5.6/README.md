@@ -1,22 +1,32 @@
-docker-mysql
-============
+docker-mysql-5.6
+================
 
 Run an out-of-the-box mysql server.
 
-Exposing datas and config folders for backup.
-
 Import script included
+
+I highly advise to use in conjunction with the data-container:
+* It has all the advantages of the philosophy of One container for One job.
+* plus the data-container has Volumes to allow acces to config and data dirs (better/safer than having Volumes on the MySQL server).
 
 Usage
 -----
 
-The first time that you run the container, the server will generate a random password for the user `admin`. You can see the password in the docker logs :
+The first time that you run the container, the server will generate a random password for the user `admin`. You can see the password in the docker logs:
         docker logs <CONTAINER_ID>
 
 You can set MYSQL_USER and MYSQL_PASS env variables to set user and/or password :
         docker run -d -e MYSQL_USER="myuser" -e MYSQL_PASS="mypass" sabbasth/mysql:<tag>
 
 Remember that root user is only accessible from localhost.
+
+Mounting with the data container
+--------------------
+
+Start a data container (See sabbasth/mysql:data-container)/
+
+Run the server:
+    docker create --volumes-from <data container name> sabbasth/mysql:<tag>
 
 Export/Import database data
 ---------------------------
