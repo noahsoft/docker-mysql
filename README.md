@@ -1,2 +1,8 @@
-# docker-mysql
-Run an out-of-the-box mysql server. Exposing datas &amp; cfg. Import and export scripts included
+docker-mysql
+============
+
+Run an out-of-the-box mysql server.
+
+Exposing datas and config folders for backup.
+
+Import script included
