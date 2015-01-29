@@ -10,3 +10,6 @@ Import script included
 Usage
 -----
 
+    docker create --name <container name> sabbasth/data-container
+
+That's all
