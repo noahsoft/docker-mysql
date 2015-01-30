@@ -54,9 +54,11 @@ The slave must have its master's link alias named `mysql`.
 
 Examples:
 - Master MySQL
+
     docker run -d -e REPLICATION_MASTER=true -e REPLICATION_USER=repuser -e REPLICATION_PASS=reppass -p 3306:3306 --name mysql tutum/mysql
 
 - Example on Slave MySQL:
+
     docker run -d -e REPLICATION_SLAVE=true -p 3307:3306 --link mysql:mysql tutum/mysql
 
 Now, you can access port `3306` and `3307` for the master/slave mysql
