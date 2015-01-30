@@ -6,8 +6,10 @@ Run an out-of-the-box mysql server.
 Import script included
 
 I highly advise to use in conjunction with the data-container:
-* It has all the advantages of the philosophy of One container for One job.
-* plus the data-container has Volumes to allow acces to config and data dirs (better/safer than having Volumes on the MySQL server).
+
+- It has all the advantages of the philosophy of One container for One job.
+
+- plus the data-container has Volumes to allow acces to config and data dirs (better/safer than having Volumes on the MySQL server).
 
 Usage
 -----
@@ -25,7 +27,7 @@ Remember that root user is only accessible from localhost.
 Mounting with the data container
 --------------------
 
-Start a data container (See sabbasth/mysql:data-container)/
+Start a data container (See [sabbasth/mysql:data-container](https://github.com/Sabbasth/docker-mysql/tree/master/data-container))
 
 Run the server:
 
@@ -53,6 +55,7 @@ On master, specify `REPLICATION_USER` and `REPLICATION_PASS` for the account to 
 The slave must have its master's link alias named `mysql`.
 
 Examples:
+
 - Master MySQL
 
     docker run -d -e REPLICATION_MASTER=true -e REPLICATION_USER=repuser -e REPLICATION_PASS=reppass -p 3306:3306 --name mysql tutum/mysql
