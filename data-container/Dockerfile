@@ -6,6 +6,7 @@ MAINTAINER Bastien Semene <bastien@semene.fr>
 RUN groupadd -r mysql && useradd -r -g mysql mysql
 
 # Add MySQL configuration
+ADD my.cnf.default /etc/mysql/my.cnf
 ADD my.cnf /etc/mysql/conf.d/my.cnf
 ADD mysqld_charset.cnf /etc/mysql/conf.d/mysqld_charset.cnf
 
