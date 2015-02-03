@@ -31,7 +31,7 @@ Start a data container (See [sabbasth/mysql:data-container](https://github.com/S
 
 Run the server:
 
-    docker create --volumes-from <data container name> sabbasth/mysql:<tag>
+    docker run -d --volumes-from <data container name> sabbasth/mysql:<tag>
 
 Export/Import database data
 ---------------------------
